@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+
+    <script>
+        // var big = 50
+        var show = 1
+        var r1 = random(0, 255)
+        var r2 = random(0, 255)
+        var r3 = random(0, 255)
+
+
+        function setup() {
+            createCanvas(400, 400);
+            background(0, 0, 0, 200)
+
+            r1 = random(0, 255)
+            r2 = random(0, 255)
+            r3 = random(0, 255)
+
+
+        }
+
+        function draw() {
+
+            frameRate(1)
+            background(r1, r2, r3, 25)
+            frameRate(50)
+            
+            //Randome lines shooting out from the shape
+            strokeWeight(15)
+            stroke(15,15,15,50)
+            line(random(0, 400), random(0,400), mouseX, mouseY)
+            line(random(0, 400), random(0,400), mouseX, mouseY)
+            frameRate(15)
+
+
+            r1 = random(0, 255)
+            r2 = random(0, 255)
+            r3 = random(0, 255)
+            
+            //The shape of the body
+            noStroke()
+            fill(random(0, 255), random(0, 255), random(0, 255), 200)
+            ellipseMode(CENTER)
+            ellipse(mouseX, mouseY, show * 1.5, show * 2)
+            //ellipseMode(CORNER)
+
+            //The eyes for the shape
+            fill(0, 0, 0, 50)
+            ellipse(mouseX - 30, mouseY - 10, show / 4, show / 4)
+            ellipse(mouseX + 30, mouseY - 10, show / 4, show / 4)
+            show = show + 3
+
+        }
+
+        function mouseDragged() {
+            background(r1, r2, r3, 40)
+
+            show = show - 2
+
+            //Makes a square as the body
+            rectMode(CENTER)
+            noStroke()
+            fill(random(0, 255), random(0, 255), random(0, 255))
+            rect(mouseX, mouseY, show + 30, show + 45)
+            //Makes squares for the eyes
+            fill(0)
+            rect(mouseX - 20, mouseY - 10, show / 2, show / 2)
+            rect(mouseX + 20, mouseY - 10, show / 2, show / 2)
+            
+
+            show = show - 2
+
+        }
+
+        function keyPressed() {
+
+            background(r1, r2, r3, 200)
+            //makes an "X" through out the background
+            noFill()
+            stroke(255, 0, 0)
+            line(0, 0, width, height)
+            line(width, 0, 0, height)
+
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/rileyk0998/p5js/blob/master/Interaction.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+</html>
