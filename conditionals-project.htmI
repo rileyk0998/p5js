@@ -9,6 +9,7 @@
         var time;
         var P_1;
         var P_2;
+        //var millisecond = millis();
         var time;
 
 
@@ -23,11 +24,41 @@
         }
 
         function draw() {
-            if (P_1 > P_2) { //this says who is winning
+            // background(255)
+            textSize(30)
+            // text("If you want to play the game press the space bar.", 0, 250)
+            // //line(300, 0, 300, 600)
+
+            // if (keyCode == 32) {
+            //  textSize(100) //text size for everything
+            // // fill(0) //fill and location of "G"
+            // // text("Wait", 250, 300)
+            // if (millis() < 3000) {
+            //     background(255)
+            //  fill(0) //fill and location of "l"
+            //  text("GO", 250, 300)
+
+            // }
+            // else {
+            //     background(255)
+            //     fill(0) //fill and location of "l"
+            //     text("GO", 250, 300)
+
+            // }
+
+
+            //(millis() > 10000)
+
+
+            ///text(P_1, 200, 300)
+            //text(P_2, 300, 300)
+            // if (millis > 5000) {
+
+            if (P_1 > P_2) { //&& (millis < 5000)) {
                 background(59, 214, 137)
                 text("P_1 is winning", 100, 300)
             }
-            else if (P_1 < P_2) {
+            else if (P_1 < P_2) { // && (millis < 5000)) {
                 background(104, 11, 93)
                 text("P_2 is winning", 300, 300)
             }
@@ -37,16 +68,18 @@
             }
 
 
-            text("Score: " + P_1, 100, 100) //player 1 score
-            text("Score: " + P_2, 400, 100) //player 2 score 
-            
+            text("Score: " + P_1, 100, 100)
+            text("Score: " + P_2, 400, 100)
+
+            //time  = mills()
             text("Time:" + millis(), 493, 550)
 
-            if (millis() > 8000) { //the amount of time before following action
+            if (millis() > 8000) {
                 //remove()
 
 
-                if (P_1 > P_2) { //announce who is the winner
+                //console.log("its a minute! WOOOOOOOOOOOOOOOOO");
+                if (P_1 > P_2) {
                     background(random(250))
                     text("Player 1 wins!", 300, 300)
                     time == 0
@@ -69,7 +102,7 @@
         function keyPressed() {
             console.log("P_1:" + P_1)
             console.log("P_2:" + P_2)
-            if (keyCode == 16) { //when key is pressed it will add a score
+            if (keyCode == 16) {
                 P_1++
 
                 //text("Score: " + P_1, 100, 100)
@@ -84,7 +117,7 @@
 
 <body>
     <div id="code" class="container-fluid">
-        <script src="https://gist-it.appspot.com/github/lauraa0055/p5js/blob/master/conditionals-project.html?footer=0"></script>
+        <script src="https://gist-it.appspot.com/github/Rileyk0998/p5js/blob/master/conditionals-project.html?footer=0"></script>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
