@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+
+    <script>
+        var time;
+        var P_1;
+        var P_2;
+        var time;
+
+
+        function setup() {
+            createCanvas(600, 600);
+            var time = millis();
+
+            P_1 = 0
+            P_2 = 0
+            time = millis
+
+        }
+
+        function draw() {
+            textSize(30)
+
+            //Show who is winning
+            if (P_1 > P_2) { 
+                background(59, 214, 137)
+                text("P_1 is winning", 100, 300)
+            }
+            else if (P_1 < P_2) { 
+                background(104, 11, 93)
+                text("P_2 is winning", 300, 300)
+            }
+            else {
+                background(random(255), random(255), random(255))
+                text("It is a tie!", 250, 300)
+            }
+
+
+            //Show the score
+            text("Score: " + P_1, 100, 100)
+            text("Score: " + P_2, 400, 100)
+            
+            //Show time
+            text("Time:" + millis(), 493, 550)
+
+            //After time past say who wins
+            if (millis() > 8000) {
+                //remove()
+
+                if (P_1 > P_2) {
+                    background(random(250))
+                    text("Player 1 wins!", 300, 300)
+                    time == 0
+                }
+                else if (P_2 > P_1) {
+                    background(random(255))
+                    text("Player 2 Wins!", 300, 300)
+                    time == 0
+                }
+                else {
+                    background(random(240))
+                    text("it's a tie", 300, 300)
+                }
+            }
+
+
+
+        }
+
+        function keyPressed() {
+            console.log("P_1:" + P_1)
+            console.log("P_2:" + P_2)
+            //Add 1 to current score
+            if (keyCode == 16) {
+                P_1++
+
+                //text("Score: " + P_1, 100, 100)
+            }
+            if (keyCode == 13) {
+                P_2++
+                //text("Score: " + P_2, 500, 100)
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/rileyk0998/p5js/blob/master/conditionals-project.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
