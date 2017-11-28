@@ -9,7 +9,6 @@
         var time;
         var P_1;
         var P_2;
-        //var millisecond = millis();
         var time;
 
 
@@ -25,35 +24,6 @@
 
         function draw() {
             textSize(30)
-            // background(255)
-            
-            // text("If you want to play the game press the space bar.", 0, 250)
-            // //line(300, 0, 300, 600)
-
-            // if (keyCode == 32) {
-            //  textSize(100) //text size for everything
-            // // fill(0) //fill and location of "G"
-            // // text("Wait", 250, 300)
-            // if (millis() < 3000) {
-            //     background(255)
-            //  fill(0) //fill and location of "l"
-            //  text("GO", 250, 300)
-
-            // }
-            // else {
-            //     background(255)
-            //     fill(0) //fill and location of "l"
-            //     text("GO", 250, 300)
-
-            // }
-
-
-            //(millis() > 10000)
-
-
-            ///text(P_1, 200, 300)
-            //text(P_2, 300, 300)
-            // if (millis > 5000) {
 
             //Show who is winning
             if (P_1 > P_2) { 
@@ -73,8 +43,6 @@
             //Show the score
             text("Score: " + P_1, 100, 100)
             text("Score: " + P_2, 400, 100)
-
-            //time  = mills()
             
             //Show time
             text("Time:" + millis(), 493, 550)
