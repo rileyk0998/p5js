@@ -24,8 +24,9 @@
         }
 
         function draw() {
-            // background(255)
             textSize(30)
+            // background(255)
+            
             // text("If you want to play the game press the space bar.", 0, 250)
             // //line(300, 0, 300, 600)
 
@@ -54,11 +55,12 @@
             //text(P_2, 300, 300)
             // if (millis > 5000) {
 
-            if (P_1 > P_2) { //&& (millis < 5000)) {
+            //Show who is winning
+            if (P_1 > P_2) { 
                 background(59, 214, 137)
                 text("P_1 is winning", 100, 300)
             }
-            else if (P_1 < P_2) { // && (millis < 5000)) {
+            else if (P_1 < P_2) { 
                 background(104, 11, 93)
                 text("P_2 is winning", 300, 300)
             }
@@ -68,17 +70,19 @@
             }
 
 
+            //Show the score
             text("Score: " + P_1, 100, 100)
             text("Score: " + P_2, 400, 100)
 
             //time  = mills()
+            
+            //Show time
             text("Time:" + millis(), 493, 550)
 
+            //After time past say who wins
             if (millis() > 8000) {
                 //remove()
 
-
-                //console.log("its a minute! WOOOOOOOOOOOOOOOOO");
                 if (P_1 > P_2) {
                     background(random(250))
                     text("Player 1 wins!", 300, 300)
@@ -102,6 +106,7 @@
         function keyPressed() {
             console.log("P_1:" + P_1)
             console.log("P_2:" + P_2)
+            //Add 1 to current score
             if (keyCode == 16) {
                 P_1++
 
