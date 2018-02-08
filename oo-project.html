@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+
+    <script>
+        var stars = [];
+
+        function setup() {
+            createCanvas(500, 500);
+            noCursor();
+            for (var i = 0; i < 15; i++) { //start off with 15 stars
+                stars.push(new Star());
+            }
+        }
+
+        function draw() {
+            background(5);
+            for (var i = 0; i < stars.length; i++) { //display the stars moving
+                stars[i].move();
+                stars[i].display();
+                stars[i].checkCollide();
+            }
+
+            blackhole();
+        }
+
+        function blackhole() { //the 
+            var x = mouseX;
+            var y = mouseY;
+
+            //discription of circle
+            fill(2);
+            stroke(70);
+            strokeWeight(2)
+
+            //shape of circle
+            ellipse(x, y, 25, 25);
+        }
+
+        function Star() { //the stars
+            //discription of each indvidual star
+            this.x = random(width);
+            this.y = random(height);
+            this.size = random(5, 20);
+            this.speed = 1
+
+            this.move = function() { //action of star
+                //stars moving
+                this.x += .5;
+                this.y += .5;
+                this.speed += .005
+                this.x += this.speed;
+                this.y += this.speed;
+
+                //once reach end of screen refresh in the beginning
+                if (this.x > width) {
+                    this.x = 0;
+                }
+                if (this.y > height) {
+                    this.y = 0;
+                }
+            }
+
+            this.display = function() { //show star on screen
+                //color of star
+                fill(255, 247, 247);
+                noStroke();
+
+                //shape of star
+                ellipse(this.x, this.y, this.size, this.size);
+
+            }
+            this.checkCollide = function() { //checks when blackhole hits the star
+                var consume;
+                var time = 6;
+
+                //checks on the blackhole and if it touchs a star
+                for (var i = 0; i < stars.length; i++) {
+                    if (mouseX > stars[i].x - 15 &&
+                        mouseX < stars[i].x + 15 &&
+                        mouseY > stars[i].y - 15 &&
+                        mouseY < stars[i].y + 15
+                    ) {
+                        background(255, 0, 0)
+                        textSize(20)
+                        text("Game Over", width / 2 - 50, height / 2)
+                        noLoop()
+                        consume = false;
+                    }
+                    else {
+                        consume = true;
+                    }
+                }
+
+                //measures how fast the stars move
+                //once it reaches a certain speed it will rest speed and new stars
+                if (this.speed >= time) { 
+
+                    //restart speed
+                    this.speed = 1;
+                    time += 2;
+
+                    //remove stars
+                    stars.splice(1, stars.length);
+
+                    //make now stars
+                    for (var i = 0; i < 20; i++) {
+                        stars.push(new Star());
+                    }
+                }
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form><input TYPE="button" onClick="history.go(0)" value="Reset"></form>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/rileyk0998/p5js/blob/master/oo-project.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+</html>
